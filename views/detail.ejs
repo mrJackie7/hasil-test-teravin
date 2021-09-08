@@ -1,0 +1,49 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Detail Pegawai</h2>
+      <% if (pegawai.exists === 0) { %>
+      <div class="alert alert-danger fw-bold" role="alert">
+        Data pegawai tidak ditemukan! <br />
+        <a href="/" class="alert-link fw-normal"
+          >&laquo; kembali ke Daftar Pegawai</a
+        >.
+      </div>
+      <% } else { %>
+        <form>
+          <div class="mb-1">
+            <label for="nama" class="form-label">ID Pegawai:</label>
+            <input type="text" class="form-control" id="idPegawai" name="idPegawai" value="<%= pegawai.idPegawai %>" disabled readonly>
+          </div>
+          <div class="mb-1">
+            <label for="nama" class="form-label">Nama:</label>
+            <input type="text" class="form-control" id="nama" name="nama" value="<%= pegawai.nama %>" disabled readonly>
+          </div>
+          <div class="mb-1">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= pegawai.email %>" disabled readonly>
+          </div>
+          <div class="mb-1">
+            <label for="mobile" class="form-label">Nomor Telepon:</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" value="<%= pegawai.mobile %>" disabled readonly>
+          </div>
+          <div class="mb-1">
+            <label for="birthdate">Birthdate:</label>
+            <input type="text" class="form-control" placeholder="DD-MM-YYYY"
+              onfocus="(this.type='date')"
+              onblur="(this.type='text')"
+              value="<%= pegawai.birthdate %>" disabled readonly>
+          </div>
+          <div class="field-wrapper">
+            <label for="field-alamat">Alamat:</label>
+            <div class="input-group mb-1">
+              <input type="text" id="field-alamat" name="alamat" class="form-control" value="<%= pegawai.alamat %>" disabled readonly/>
+            </div>
+          </div>
+          <a href="/" class="btn btn-secondary">Kembali</a>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>

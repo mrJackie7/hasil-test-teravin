@@ -1,0 +1,60 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Data Pegawai</h2>
+      <a class="btn btn-primary mb-2" href="/add"
+        ><i class="bi bi-person-plus"></i> Daftarkan Pegawai Baru</a
+      >
+
+      <% if (msg.length !== 0) { %>
+      <div class="alert alert-success" role="alert"><%= msg %></div>
+      <% } %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Email</th>
+            <th scope="col">No Telpon</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (employees.length === 0) { %>
+          <tr>
+            <td colspan="4">
+              <div class="alert alert-danger fw-bold" role="alert">
+                List Empty!
+              </div>
+            </td>
+          </tr>
+          <% } %> <% employees.forEach(pegawai => { %>
+          <tr>
+            <th scope="row"><%= pegawai.idPegawai %></th>
+            <td><%= pegawai.nama %></td>
+            <td><%= pegawai.email %></td>
+            <td><%= pegawai.mobile %></td>
+            <td>
+              <a
+                href="/detail/<%= pegawai.idPegawai %> "
+                class="btn btn-success badge rounded-pill"
+                ><i class="bi bi-info-circle"></i> detail</a
+              >
+              <a
+                href="/edit/<%= pegawai.idPegawai %>"
+                class="btn btn-info badge"
+                >ubah</a
+              >
+              <a
+                href="/hapus/<%= pegawai.idPegawai %>"
+                class="btn btn-danger badge"
+                >hapus</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

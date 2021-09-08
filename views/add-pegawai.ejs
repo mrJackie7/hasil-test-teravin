@@ -1,0 +1,49 @@
+<div class="container mt-3"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Form Tambah Data Pegawai</h2>
+
+      <!-- Check validasi error -->
+      <% if (typeof errors!= 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% errors.forEach(error => { %>
+              <li><%= error.msg %> </li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+      
+      <form method="POST" action="/add/pegawai">
+        <div class="mb-1">
+          <label for="nama" class="form-label">Nama:</label>
+          <input type="text" class="form-control" id="nama" name="nama">
+        </div>
+        <div class="mb-1">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-1">
+          <label for="noHp" class="form-label">Nomor Telepon:</label>
+          <input type="text" class="form-control" id="mobile" name="mobile" required>
+        </div>
+        <div class="mb-1">
+          <label for="birthdate">Birthdate:</label>
+          <input type="text" name="birthdate" class="form-control" placeholder="MM/DD/YYYY"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')">
+        </div>
+        <div class="field-wrapper">
+          <label for="field-alamat">Alamat:</label>
+          <div class="input-group mb-1">
+            <input type="text" id="field-alamat" name="alamat" class="form-control" value=""/>
+            <!-- <a href="javascript:void(0);" class="add_button btn btn-outline-primary" title="Add field">tambah</a> -->
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary md-3">Tambahkan</button>
+        <a href="/" class="btn btn-secondary">Kembali</a>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
